@@ -9,8 +9,8 @@ import java.util.ResourceBundle;
 public class Connector implements AutoCloseable {
 
 
-    private Connection cn = null;
-    private Statement st = null;
+    private Connection cn;
+    private Statement st;
     private static Connector connector = null;
 
 
@@ -19,7 +19,7 @@ public class Connector implements AutoCloseable {
         this.st = getStatement();
     }
 
-    public static Connector getInstance() {
+    public static synchronized Connector getInstance() {
         if (connector != null) {
             return connector;
         }
@@ -41,17 +41,10 @@ public class Connector implements AutoCloseable {
 
         try {
             Class.forName(driver).newInstance();
-        } catch (InstantiationException e) {
+        } catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
             System.out.println(connection.ConstConn.MESSAGE_BAD_DRIVER);
             e.printStackTrace();
 
-        } catch (IllegalAccessException e) {
-            System.out.println(connection.ConstConn.MESSAGE_BAD_DRIVER);
-            e.printStackTrace();
-
-        } catch (ClassNotFoundException e) {
-            System.out.println(connection.ConstConn.MESSAGE_BAD_DRIVER);
-            e.printStackTrace();
         }
 
         try {

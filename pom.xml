@@ -56,13 +56,13 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
 
-        <!--JDBC drivers-->
-        <!-- <dependency>
-             <groupId>org.postgresql</groupId>
-             <artifactId>postgresql</artifactId>
-             <version>${postgresql.version}</version>
-         </dependency>-->
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
@@ -101,6 +101,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

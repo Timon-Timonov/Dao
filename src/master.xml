@@ -19,13 +19,13 @@
         <comment>example-comment</comment>
 
         <createTable tableName="Persons">
-            <column name="Id" autoIncrement="true" type="INT">
+            <column name="id" autoIncrement="true" type="INT">
                 <constraints primaryKey="true" nullable="false" ></constraints>
             </column>
-            <column name="Surname" type="Varchar(30)"  >
+            <column name="surname" type="Varchar(30)"  >
                 <constraints nullable="false"></constraints>
             </column>
-            <column name="Name" type="Varchar(30)"  >
+            <column name="name" type="Varchar(30)"  >
                 <constraints nullable="false"></constraints>
             </column>
         </createTable>
